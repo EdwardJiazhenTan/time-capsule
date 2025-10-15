@@ -16,17 +16,21 @@ record CapsuleRequest(
 @RequestMapping("/api/capsules")
 public class TimeCapsuleController {
 
+    private final TimeCapsuleService timeCapsuleService;
+
+    public TimeCapsuleController(TimeCapsuleService timeCapsuleService) {
+        this.timeCapsuleService = timeCapsuleService;
+    }
+
     /**
      * create a new time Capsule
      * @param capsuleRequest inclues the Post request
      * @return return received datas
      */
     @PostMapping
-    public CapsuleRequest createCapsule(
+    public TimeCapsule createCapsule(
         @RequestBody CapsuleRequest capsuleRequest
     ) {
-        System.out.println("Received new capsule " + capsuleRequest);
-
-        return capsuleRequest;
+        return timeCapsuleService.createCapsule(capsuleRequest);
     }
 }

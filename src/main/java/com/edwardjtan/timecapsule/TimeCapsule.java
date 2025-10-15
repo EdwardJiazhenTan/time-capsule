@@ -1,9 +1,12 @@
 package com.edwardjtan.timecapsule;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import java.time.LocalDateTime;
-import org.springframework.cglib.core.Local;
-import org.springframework.data.annotation.Id;
 
 @Entity
 @Table(name = "time_capsules")
@@ -24,7 +27,7 @@ public class TimeCapsule {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @Column(name = "send_at")
+    @Column(name = "sent_at")
     private LocalDateTime sentAt;
 
     public TimeCapsule() {}
@@ -49,7 +52,7 @@ public class TimeCapsule {
         return this.message;
     }
 
-    public LocalDateTime getScheuledSendDate() {
+    public LocalDateTime getScheduledSendDate() {
         return this.scheduledSendDate;
     }
 
@@ -61,8 +64,24 @@ public class TimeCapsule {
         this.message = message;
     }
 
-    public void setScheuledSendDate(LocalDateTime scheduledSendDate) {
+    public void setScheduledSendDate(LocalDateTime scheduledSendDate) {
         this.scheduledSendDate = scheduledSendDate;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public LocalDateTime getSentAt() {
+        return this.sentAt;
     }
 
     @Override
