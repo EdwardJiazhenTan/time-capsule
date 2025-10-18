@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import org.springframework.cglib.core.Local;
 
 @Entity
 @Table(name = "time_capsules")
@@ -82,6 +83,14 @@ public class TimeCapsule {
 
     public LocalDateTime getSentAt() {
         return this.sentAt;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setSentAt(LocalDateTime sentAt) {
+        this.sentAt = sentAt;
     }
 
     @Override
