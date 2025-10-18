@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 record CapsuleRequest(
@@ -40,14 +41,20 @@ public class TimeCapsuleController {
         return timeCapsuleService.createCapsule(capsuleRequest);
     }
 
-    @GetMapping("/test-email")
-    public String testEmail() {
-        String testRecipient = "edwardjiazhentan@gmail.com";
-        emailService.sendEmail(
-            testRecipient,
-            "Tiem Capsule Test Email",
-            "this is a test email.. what up"
-        );
-        return "Email test endpoint called, yoyo";
+    /**
+     *
+     * @param to the target recipient
+     * @param subject the subject of email
+     * @param text the body of email
+     * @return a string indicating success
+     */
+    @GetMapping("/send-email")
+    public String sendEmail(
+        @RequestParam String to,
+        @RequestParam String subject,
+        @RequestParam String text
+    ) {
+        emailService.sendEmail(to, subject, text);
+        return "Email send to: " + to;
     }
 }
