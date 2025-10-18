@@ -55,7 +55,7 @@ psql -U your_username -d timecapsule_db -c "\dt"
 ## Development Roadmap
 
 - [x] **Phase 1a: Database Setup** - PostgreSQL schema and connection
-- [ ] **Phase 1b: MVP** - Core time capsule functionality (no auth)
+- [x] **Phase 1b: MVP** - Core time capsule functionality (no auth)
   - Create capsule (email + message + send date)
   - Store in PostgreSQL
   - Scheduled email delivery
@@ -64,6 +64,3 @@ psql -U your_username -d timecapsule_db -c "\dt"
 - [ ] **Phase 4: History** - View sent capsules
 - [ ] **Phase 5: Frontend** - Simple web UI
 - [ ] **Phase 6: Deployment** - Host on AWS
-
-## Current Phase
-Phase 1b: Building core time capsule functionality
